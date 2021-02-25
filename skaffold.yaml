@@ -11,7 +11,7 @@ build:
     - image: ucheigbokwe/auth
       context: auth
       docker:
-        dockerfile: dockerfile
+        dockerfile: Dockerfile
       sync: 
         manual:
           - src: 'src/**/*.ts'
