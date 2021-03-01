@@ -1,8 +1,11 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
 
 const router = express.Router();
 
-router.post('/api/users/signin', (req, res) => {
+router.post('/api/users/signin', 
+
+(req, res) => {
     res.send('You signed in!')
 });
 
