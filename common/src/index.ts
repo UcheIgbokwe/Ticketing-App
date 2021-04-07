@@ -6,7 +6,7 @@ interface Color {
 
 const color: Color = {
     red: 20,
-    blue: 10,
+    blue: 30,
     green: 10
 };
 
