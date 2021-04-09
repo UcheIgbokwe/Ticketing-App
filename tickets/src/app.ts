@@ -2,9 +2,9 @@ import express from 'express';
 import { json } from 'body-parser';
 import 'express-async-errors';
 import cookieSession from 'cookie-session';
-import { NotFoundError, errorHandler } from '@jackytickets/common';
+import { NotFoundError, errorHandler, currentUser } from '@jackytickets/common';
 
-
+import { createTicketRouter } from './routes/new';
 
 const app = express();
 //trust traffic coming from proxy NGINX
@@ -16,7 +16,9 @@ app.use(
         secure: process.env.NODE_ENV !== 'test'
     })
 );
+app.use(currentUser);
 
+app.use(createTicketRouter);
 
 app.all('*', async () => {
     throw new NotFoundError();
